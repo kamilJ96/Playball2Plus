@@ -6,3 +6,4 @@ Group name: The Rejects
 Matt Dunwoodie
 Kamil Jakrzewski
 Catherine Nguyen
+Yusi Zhang

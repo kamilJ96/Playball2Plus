@@ -4,3 +4,5 @@ Group name: The Rejects
 
 ## Members:
 Matt Dunwoodie
+Kamil Jakrzewski
+Catherine Nguyen

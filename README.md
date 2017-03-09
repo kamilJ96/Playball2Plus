@@ -1,3 +1,5 @@
+![Logo](logo.svg)
+
 # INFO30005-S1-2017
 
 Group name: The Rejects

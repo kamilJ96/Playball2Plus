@@ -27,7 +27,7 @@
 }
 #calendar ul.weekdays{
 	height: 50px;
-	width: 1370px;
+	width: 100%;
 }
 
 #calendar ul.weekdays li {

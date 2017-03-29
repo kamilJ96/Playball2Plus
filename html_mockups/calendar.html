@@ -8,7 +8,7 @@
     <title>PlayBall2+</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">  
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 
 
@@ -19,54 +19,54 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+ <body>
     
-    <nav class="navbar navbar-default">
+ <nav class="navbar navbar-toggleable-sm">
     <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <button type="button" class="navbar-toggler collapsed float-right hidden-md-up"
+        data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">☰</button> <a class="navbar-brand" href="landing.html">
+
           <span>
-          <img alt="Brand" style="height:20px;" src="logo.png">
+
+          <img alt="Brand" style="height: 20px;" src="logo.png" />
           PlayBall2+
           </span>
-        </a>
-      </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        </a>
+        <!-- Collect the nav links, forms, and other content for toggling
+        -->
         <ul class="nav navbar-nav">
-          <li><a href="about.html">About</a></li>
-          <li class="active"><a href="#">Calendar<span class="sr-only">(current)</span></a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link">About</a>
+            </li>
+            <li class="nav-item"><a href="calendar.html" class="nav-link">Calendar</a>
+            </li>
+			<li class="nav-item"><a href="games.html" class="nav-link">Games</a>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Profile <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Events</a></li>
-              <li><a href="#">Setting</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Log out</a></li>
-            </ul>
-          </li>
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          My Profile
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Events</a>
+          <a class="dropdown-item" href="#">Settings</a>
+          <a class="dropdown-item" href="#">Logout</a>
+        </div>
+      </li>
         </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-    </nav> 
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <div class="container">
-    <div class='col-md-2 col-md-offset-2 padding-group'>
-      <select name="columns" class="form-control input-lg">
+  <div class="row" style="padding: 20px;">
+      <div class="col-sm-3"><select name="columns" class="form-control input-lg">
         <option value="January 2017">January 2017</option>
         <option value="February 2017">February 2017</option>
         <option value="March 2017">March 2017</option>
@@ -81,16 +81,16 @@
         <option value="December 2017">December 2017</option>
       </select>
     </div>
-       
-    <div class="col-md-2">
-      <h3 class="sub-header"><a href="mygame.html"> My Games </a></h3>
-    </div>
-    <div class="col-md-2">
-      <h3 class="sub-header"><a href="friends-game.html"> Friend's Game </a></h3>
-    </div>
-    <div class="col-md-2">
-      <h3 class="sub-header"><a href="public-game"> Public Games</a></h3>
-    </div>
+      <div class="col-sm-3"> 
+      <h3 class="sub-header"><a href="mygame.html">My Games</a></h3>
+	  </div>
+	  <div class="col-sm-3">
+      <h3 class="sub-header"><a href="friends-game.html">Friend's Game</a></h3>
+	  </div>
+	  <div class="col-sm-3">
+      <h3 class="sub-header"><a href="public-game">Public Games</a></h3>
+	  </div>
+	</div>
 
     <div id= "calendar">
     <ul class = "weekdays">
@@ -153,6 +153,7 @@
         <li> </li>
     </ul>
     </div>
+  </div>
   </div>
 
   </body>

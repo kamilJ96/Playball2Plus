@@ -25,11 +25,9 @@ body {
     width: 95%;
 }
 .card {
-    width: 75%;
     border-color: #333;
     position: relative;
     top: 30px;
-    left: 15%;
     background-color: #F0FFF0;
 }
 .card2 {
@@ -37,6 +35,8 @@ body {
     padding-left: 5%;
     padding-top: 2%;
     border-width: 1px;
+    margin-left: 25%;
+    margin-right: 25%; 
 }
 .card-img-top {
     width: 40%;

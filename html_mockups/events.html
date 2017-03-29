@@ -8,11 +8,8 @@
     <title>PlayBall2+</title>
 
     <!-- Bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -27,37 +24,42 @@
  <nav class="navbar navbar-toggleable-sm">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <button type="button" class="navbar-toggler collapsed float-right hidden-md-up"
-        data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">☰</button> <a class="navbar-brand" href="landing.html">
-
+        <!-- /.navbar-collapse -->
+        <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="landing.html">
           <span>
-
-          <img alt="Brand" style="height: 20px;" src="logo.png" />
+          <img alt="Brand" style="height:20px;" src="logo.png">
           PlayBall2+
           </span>
-
         </a>
-        <!-- Collect the nav links, forms, and other content for toggling
-        -->
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-            <li class="nav-item"><a href="about.html" class="nav-link">About</a>
-            </li>
-            <li class="nav-item"><a href="calendar.html" class="nav-link">Calendar</a>
-            </li>
-            <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Profile <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="events.html">Events</a></li>
-                  <li><a href="#">Setting</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">Log out</a></li>
-                </ul>
-              </li>
-            </ul>
-        </li>
+          <li class="active"><a href="#">About</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
+          <li><a href="games.html">Games</a></li>
         </ul>
-        <!-- /.navbar-collapse -->
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Profile <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Events</a></li>
+              <li><a href="#">Setting</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Log out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+
     </div>
     <!-- /.container-fluid -->
 </nav>
@@ -67,7 +69,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
-  <div class="container-fluid">
+  <div class="container">
    <div class="row">
      <div class="col-sm-3 sidenav">
        <h5>My Playball</h5>

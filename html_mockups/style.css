@@ -1,49 +1,89 @@
-.sub-header {
-        text-align: center;
+body {
+	background-color: #CCFFCC;
 }
-#calendar ul{
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	clear: both;
-	width: 100%;
+.navbar {
+    background-color: #31B94D;
 }
-
-#calendar li{
-	display: block;
-	float: left;
-	width: 14.37%;
-	padding: 5px;
-	box-sizing: border-box;
-	border: 1px solid #d3d3d3;
-	margin-right: -1px;
-	margin-bottom: -1px;
+.dropdown-menu{
+   background-color: #0ba568;
 }
-
-#calendar ul.weekdays{
-	height: 50px;
-	width: 100%;
-}
-
-#calendar ul.weekdays li {
-	text-align: center;
-	line-height: 20px;
-	border: none !important;
-	padding: 10px 6px;
+.navbar li a {
 	color: white;
-	font-size: 20px;
-	background-color: #149CF4;
 }
-
+.my-games {
+    position: relative;
+    left: 250px;
+}
+.container {
+    text-align: center;
+}
+.form-group {
+    position: relative;
+    left: 200px;
+}
+.row {
+    width: 95%;
+}
+.card {
+    width: 75%;
+    border-color: #333;
+    position: relative;
+    top: 30px;
+    left: 15%;
+    background-color: #F0FFF0;
+}
+.card2 {
+    width: 50%;
+    padding-left: 5%;
+    padding-top: 2%;
+    border-width: 1px;
+}
+.card-img-top {
+    width: 40%;
+    position: relative;
+    top: 10px;
+    left: 50%;
+}
+.card-img-top2 {
+    width: 100%;
+}
+#calendar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    clear: both;
+    width: 100%;
+}
+#calendar li {
+    display: block;
+    float: left;
+    width: 10%;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #d3d3d3;
+    margin-right: -1px;
+    margin-bottom: -1px;
+}
+#calendar ul.weekdays {
+    height: 50px;
+    width: 100%;
+}
+#calendar ul.weekdays li {
+    text-align: center;
+    line-height: 20px;
+    border: none !important;
+    padding: 10px 6px;
+    color: white;
+    font-size: 20px;
+    background-color: #149CF4;
+}
 .days li {
-	height: 130px;
-	text-align: center;
-	margin-bottom: 5px;
-	padding: 5px;
-	float: right;
-
+    height: 130px;
+    text-align: center;
+    margin-bottom: 5px;
+    padding: 5px;
+    float: right;
 }
-
-.days li:hover{
-	background: #99D3F5;
+.days li:hover {
+    background: #99D3F5;
 }

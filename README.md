@@ -9,3 +9,4 @@ Group name: The Rejects
 * Kamil Jakrzewski
 * Catherine Nguyen
 * Yusi Zhang
+* Christopher Tatli

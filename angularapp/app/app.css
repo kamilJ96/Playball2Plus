@@ -1,0 +1,36 @@
+/* app css stylesheet */
+
+@font-face {
+    font-family: 'Playball'; /*a name to be used later*/
+    src: url('Playball.ttf'); /*URL to font*/
+}
+
+body {
+  background-color: #e1f0d5;
+}
+
+nav {
+  background-color: #0ba568;
+}
+
+#sidenav-overlay {
+  z-index: 996;
+}
+
+.fc-view-container {
+  background-color: #c1d2b4;
+}
+
+.fc-unthemed .fc-today {
+  background-color: #a4c2a0;
+}
+
+.brand-logo {
+  font-family: 'Playball';
+}
+
+.caption {
+  background: rgba(0.5, 0.5, 0.5, 0.4);
+  width: auto !important;
+  padding: 1em;
+}

@@ -1,16 +1,3 @@
-![Logo](logo.svg)
-
-# INFO30005-S1-2017
-
-Group name: The Rejects
-
-## Members:
-* Matt Dunwoodie
-* Kamil Jakrzewski
-* Catherine Nguyen
-* Yusi Zhang
-* Christopher Tatli
-
 ## Getting Started
 
 To get you started you can simply clone the repository and install the dependencies:
@@ -23,8 +10,7 @@ cd INFO30005-S1-2017/angularapp/
 npm install
 ```
 
-`npm install` is configured to run bower install, and bower is configured to instal
-l into the app directory (.bowerrc)
+`npm install` is configured to run bower install, and bower is configured to install into the app directory (.bowerrc)
 
 ### Running the server 
 

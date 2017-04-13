@@ -8,7 +8,6 @@ var Artist = mongoose.model('Artist');
 var createAlbum = function(req,res){
    Artist.findById(req.params.id, function(err, artist) {
       if(!err){
-
          artist.albums.push({
             "year":req.body.year,
             "title":req.body.title,
@@ -46,7 +45,7 @@ var findAllArtists = function(req,res){
     });
 };
 
-var findAllAlbums = function(req,res){
+/*var findAllAlbums = function(req,res){
     Album.find(function(err,albums){
         if(!err){
             res.send(albums);
@@ -54,20 +53,20 @@ var findAllAlbums = function(req,res){
             res.sendStatus(404);
         }
     });
-};
+};*/
 
-
-var findOneCafe = function(req,res){
-    var cafeInx = req.params.id;
-    Artist.findById(cafeInx,function(err,cafe){
+var findOneArtist = function(req,res){
+    var artistInx = req.params.id;
+    Artist.findById(artistInx,function(err,artist){
         if(!err){
-            res.send(cafe);
+            res.send(artist);
         }else{
             res.sendStatus(404);
         }
     });
 };
 
-module.exports.createCafe = createCafe;
-module.exports.findAllCafes = findAllCafes;
-module.exports.findOneCafe = findOneCafe;
+module.exports.createAlbum = createAlbum;
+module.exports.createAritst= createArtist;
+module.exports.findAllArtists = findAllArtists;
+module.exports.findOneArtist = findOneArtist;

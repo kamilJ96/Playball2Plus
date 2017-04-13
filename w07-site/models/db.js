@@ -3,7 +3,7 @@
  */
 // Create database
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/cafes',function(err){
+mongoose.connect('mongodb://localhost/music',function(err){
     if(!err){
         console.log('Connected to mongo');
     }else{

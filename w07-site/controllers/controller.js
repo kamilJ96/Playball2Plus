@@ -2,7 +2,6 @@
  * Created by Eduardo Velloso on 10/04/2017.
  */
 var mongoose = require('mongoose');
-var Album = mongoose.model('Album');
 var Artist = mongoose.model('Artist');
 
 var createAlbum = function(req,res){
@@ -14,6 +13,7 @@ var createAlbum = function(req,res){
             "track_count":req.body.track_count
          });
          artist.save();
+         res.send(artist);
 
       }else{
           res.sendStatus(404);
@@ -67,6 +67,6 @@ var findOneArtist = function(req,res){
 };
 
 module.exports.createAlbum = createAlbum;
-module.exports.createAritst= createArtist;
+module.exports.createArtist= createArtist;
 module.exports.findAllArtists = findAllArtists;
 module.exports.findOneArtist = findOneArtist;

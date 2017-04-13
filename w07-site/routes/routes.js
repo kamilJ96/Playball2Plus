@@ -20,6 +20,6 @@ router.get('/artist',controller.findAllArtists);
 router.get('/artist/:id',controller.findOneArtist);
 
 // Find one album by id
-router.get('/artist/album/:id',controller.findOneAlbum);
+//router.get('/artist/album/:id',controller.findOneAlbum);
 
 module.exports = router;

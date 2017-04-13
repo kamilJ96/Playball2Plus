@@ -11,4 +11,4 @@ mongoose.connect('mongodb://localhost/cafes',function(err){
     }
 });
 
-require('./cafe.js');
+require('./models.js');

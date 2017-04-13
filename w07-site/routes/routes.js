@@ -7,13 +7,19 @@ var router = express.Router();
 
 var controller = require('../controllers/controller.js');
 
-// Create new cafe
-router.post('/api',controller.createCafe);
+// Create new artist
+router.post('/artist',controller.createArtist);
 
-// Find all cafes
-router.get('/api',controller.findAllCafes);
+// Create new album
+router.post('/artist/:id/album',controller.createAlbum);
 
-// Find one cafe by id
-router.get('/api/:id',controller.findOneCafe);
+// Find all artists
+router.get('/artist',controller.findAllArtists);
+
+// Find one artist by id
+router.get('/artist/:id',controller.findOneArtist);
+
+// Find one album by id
+router.get('/artist/album/:id',controller.findOneAlbum);
 
 module.exports = router;

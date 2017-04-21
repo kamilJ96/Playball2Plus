@@ -1,16 +1,16 @@
 var mongoose = require('mongoose');
-var Events = mongoose.model('Events');
+var Event = mongoose.model('Event');
 
 var createEvents = function(req,res){
-    var event = new Events({
+    var event = new Event({
         "name":req.body.name,
         "description":req.body.description,
-        "location":req.body.location,
-        "date":req.body.date,
-        "time":req.body.time,
-        "photo":req.body.photo
+        "address":req.body.address,
+        "participantsRequried":req.body.participantsRequried,
+        "sport":req.body.sport,
+        "participants":req.body.participants
     });
-    event.save(function(err,newEvents){
+    event.save(function(err,newEvent){
         if(!err){
             res.send(newEvents);
         }else{
@@ -20,7 +20,7 @@ var createEvents = function(req,res){
 };
 
 var findAllEvents = function(req,res){
-    Events.find(function(err,events){
+    Event.find(function(err,events){
         if(!err){
             res.send(events);
         }else{
@@ -31,7 +31,7 @@ var findAllEvents = function(req,res){
 
 var findOneEvent = function(req,res){
     var cafeInx = req.params.id;
-    Events.findById(cafeInx,function(err,event){
+    Event.findById(cafeInx,function(err,event){
         if(!err){
             res.send(event);
         }else{

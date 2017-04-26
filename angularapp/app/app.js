@@ -5,7 +5,9 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.search',
   'myApp.calendar',
+  'myApp.calander',
   'myApp.profile',
+  'myApp.add_event',
   'myApp.home'
 ]).
 

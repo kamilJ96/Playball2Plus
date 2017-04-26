@@ -13,14 +13,6 @@ angular.module('myApp.calendar', ['ngRoute', 'ui.calendar'])
   $scope.eventSources = 
   [{
     events: [
-        {
-            title: 'Soccer event 1',
-            start: '2017-04-04',
-        },
-        {
-            title: 'Soccer event 2',
-            start: '2017-04-05'
-        }
     ],
     color: '#0ba568',
     textColor: 'black'

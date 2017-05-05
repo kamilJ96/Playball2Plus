@@ -1,6 +1,7 @@
 <div class="row">
 	<h1>Add an event!</h1>
 </div>
+<form action="" method="post">
 <div class="row">
 	<div class="input-field col s3">
 		<input id="name" type="text">
@@ -20,23 +21,24 @@
 		<label>Number of Participants</label>
 		<form action="#">
 			<p class="range-field">
-			<input type="range" id="test5" min="2" max="20" />
+			<input type="range" id="numParticipants" min="2" max="20" />
 			</p>
 		</form>
 	</div>
 	<div class="input-field col s3">
-		<input id="text" type="text"></input>
-		<label for="text">Enter a short description</label>
+		<input id="desc" type="text"></input>
+		<label for="desc">Enter a short description</label>
 	</div>
 </div>
 <div class="row">
 	<div class="input-field col s6">
-		<textarea id="text2" class="materialize-textarea"></textarea>
-		<label for="text2">Enter the Address</label>
+		<textarea id="address" class="materialize-textarea"></textarea>
+		<label for="address">Enter the Address</label>
 	</div>
 	<div class="col s3">
 		<label>Pick a Date</label>
-		<input type="date" class="datepicker">
+		<input id="date" type="date" class="datepicker">
 	</div>
 </div>
 <a class="waves-effect waves-light btn-large" href="#!/calander">Submit Event</a>
+</form>

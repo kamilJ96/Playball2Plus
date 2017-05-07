@@ -4,4 +4,4 @@ mongoose.connect('mongodb://localhost/events', function(err){
   console.log(msg);
 });
 
-require('./event.js');
+require('./user.js');

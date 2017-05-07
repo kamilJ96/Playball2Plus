@@ -1,5 +1,8 @@
 'use strict';
 
+var bodyParser = require('body-parser');
+var expressValidator = require('express-validator');
+
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
   'ngRoute',
@@ -50,6 +53,9 @@ factory('userService', function() {
   };
 
 });
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator());
 
 $(document).ready(function(){
   $("#mobile-menu-button").sideNav({

@@ -1,18 +1,28 @@
 var mongoose = require('mongoose');
 var Event = mongoose.model('Event');
 
-var createEvents = function(req,res){
+var createEvent = function(req,res){
+	// Sanitize the textual inputs before processing them
+	req.sanitize('name').escape();
+	req.sanitize('name').trim();
+
+	req.sanitize('desc').escape();
+	req.sanitize('desc').trim();
+
+	req.sanitize('address').escape();
+	req.sanitize('address').trim();
+
     var event = new Event({
         "name":req.body.name,
-        "description":req.body.description,
+        "description":req.body.desc,
         "address":req.body.address,
-        "participantsRequried":req.body.participantsRequried,
+        "participantsRequried":req.body.numParticipants,
         "sport":req.body.sport,
-        "participants":req.body.participants
+        "participants":"john"
     });
     event.save(function(err,newEvent){
         if(!err){
-            res.send(newEvents);
+            res.send(newEvent);
         }else{
             res.sendStatus(400);
         }
@@ -40,6 +50,6 @@ var findOneEvent = function(req,res){
     });
 };
 
-module.exports.createEvents = createEvents;
+module.exports.createEvent = createEvent;
 module.exports.findAllEvents = findAllEvents;
 module.exports.findOneEvent = findOneEvent;

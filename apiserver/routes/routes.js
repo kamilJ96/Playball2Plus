@@ -5,18 +5,21 @@
 var express = require('express');
 var router = express.Router();
 
-var passport = require('../controllers/auth.js');
+var auth = require('../controllers/auth.js');
+var user = require('../controllers/user.js');
 
-router.post('/login',
-  passport.authenticate('local', { 
-    successRedirect: '/',
-    failureRedirect: '/login',
-    failureFlash: true }
-));
+router.post('/user', user.Create);
 
-router.get('/logout', function(req, res){
-  req.logout();
-  res.redirect('/');
+router.get('/user/:id', user.Get);
+
+router.put('/user/:id', user.Update);
+  
+router.get('/public', function(req, res) { 
+  res.send("Hello public"); 
+});
+
+router.get('/private', auth.getUser, function(req, res){
+  res.send("Hello " + req.user);
 });
 
 module.exports = router;

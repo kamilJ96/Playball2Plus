@@ -5,12 +5,14 @@
 var express = require('express');
 var app = express();
 
-/* Middleware */
-var bodyParser = require('body-parser');
-app.use(bodyParser.json());
-
 // Database setup
 require('./models/db.js');
+
+/* Middleware */
+var bodyParser = require('body-parser');
+var auth = require('./controllers/auth.js');
+app.use(auth.authenticator);
+app.use(bodyParser.json());
 
 // Routes setup
 var routes = require('./routes/routes.js');

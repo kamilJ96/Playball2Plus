@@ -1,3 +1,5 @@
+'use strict';
+
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var authentication = require('express-authentication');
@@ -7,25 +9,33 @@ var auth = function (req, res, next) {
   // has tried authentication
   req.challenge = req.headers['username'];
 
-  var user = User.findOne({ 'username': req.headers['username'] });
-  user = {'username': 'username', 'password': 'password'};
-  
-  // If the authorization header is correct, mark the request as
-  // being authenticated and mark the identity of the authenticator
-  // as "fancyuser".
-  if (user.password = req.headers['password']) {
-    req.authenticated = true;
-    req.user = user;
-  } else {
-    req.authenticated = false;
-  }
+  if(!req.headers['username'] || !req.headers['password']) {
 
-  // Call the next entry in the middleware chain
-  next();
+    req.authenticated = false;
+    next();
+
+  } else {
+
+    User.findOne({ 'username': req.headers['username'] }, function(err, user) {
+      // If the authorization header is correct, mark the request as
+      // being authenticated and mark the identity of the authenticator
+      // as "fancyuser".
+      if (!err && user && user.password == req.headers['password']) {
+        req.authenticated = true;
+        req.user = user;
+      } else {
+        req.authenticated = false;
+      }
+
+      // Call the next entry in the middleware chain
+      next();
+    });
+  }
 };
 
 var getUser = authentication.required(function(req, res) {
-  res.status(401).json({ 'err': 'Unauthorized' });
+  res.status(401).json({'err': 'Unauthorized'});
+  return 'route';
 });
 
 module.exports = {};

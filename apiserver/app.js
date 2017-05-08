@@ -11,8 +11,8 @@ require('./models/db.js');
 /* Middleware */
 var bodyParser = require('body-parser');
 var auth = require('./controllers/auth.js');
-app.use(auth.authenticator);
 app.use(bodyParser.json());
+app.use(auth.authenticator);
 
 // Routes setup
 var routes = require('./routes/routes.js');

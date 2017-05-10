@@ -27,6 +27,7 @@
           <ul class="right hide-on-med-and-down">
             <li><button ng-hide="isLoggedIn" data-target="signup-modal" class="btn">Sign Up!</button></li>
             <li><button ng-hide="isLoggedIn" data-target="signin-modal" class="btn">Log in</button></li>
+            <li ng-hide="!isLoggedin" >Hello {{ currentUser.firstname }}</li>
             <li><button ng-hide="!isLoggedIn" ng-click="logout()" class="btn">Logout</button></li>
             <li><a href="#!/search"><i class="material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="Search">search</i></a></li>
             <li><a href="#!/calendar"><i class="material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="Calendar">perm_contact_calendar</i></a></li>
@@ -65,21 +66,21 @@
         <form class="col s12">
           <div class="row">
             <div class="input-field col s6">
-              <input id="first_name" ng-model="firstName" type="text" class="validate">
+              <input id="first_name" ng-model="signup_firstname" type="text" class="validate">
               <label for="first_name">First Name</label>
             </div>
             <div class="input-field col s6">
-              <input id="last_name" ng-model="lastName" type="text" class="validate">
+              <input id="last_name" ng-model="signup_lastname" type="text" class="validate">
               <label for="last_name">Last Name</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s6">
-              <input id="email" ng-model="email" type="email" class="validate">
+              <input id="email" ng-model="signup_email" type="email" class="validate">
               <label for="email" data-error="wrong" data-success="right">Email</label>
             </div>
             <div class="input-field col s6">
-              <input id="password" ng-model="password" type="password" class="validate">
+              <input id="password" ng-model="signup_password" type="password" class="validate">
               <label for="password">Password</label>
             </div>
           </div>

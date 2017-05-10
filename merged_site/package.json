@@ -17,6 +17,7 @@
     "express": "^4.15.2",
     "express-authentication": "^0.3.2",
     "express-validator": "^3.2.0",
-    "mongoose": "^4.9.4"
+    "mongoose": "^4.9.4",
+    "randomstring": "^1.1.5"
   }
 }

@@ -3,9 +3,23 @@
 var mongoose = require('mongoose');
 var userSchema = mongoose.Schema(
   {
-    'username':  String,
-    'password':  String,
-    'email':     String
+    'firstname': {
+      type: String,
+      required: true
+    },
+    'lastname': {
+      type: String,
+      required: true
+    },
+    'password':  {
+      type: String,
+      required: true
+    },
+    'token': String,
+    'email': {
+      type: String,
+      required: true
+    }
   }
 );
 

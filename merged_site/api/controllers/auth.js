@@ -7,29 +7,29 @@ var authentication = require('express-authentication');
 var auth = function (req, res, next) {
   // If authorization header is provided then mark that the user
   // has tried authentication
-  req.challenge = req.headers['username'];
+  var auth = req.headers['authorization'];
+  req.challenge = auth;
 
-  if(!req.headers['username'] || !req.headers['password']) {
+  if(!auth) {
 
     req.authenticated = false;
+    req.user = null;
     next();
 
   } else {
 
-    User.findOne({ 'username': req.headers['username'] }, function(err, user) {
-      // If the authorization header is correct, mark the request as
-      // being authenticated and mark the identity of the authenticator
-      // as "fancyuser".
-      if (!err && user && user.password == req.headers['password']) {
+    User.findOne({token: auth} , function(err, user) {
+      if(user && !err) {
         req.authenticated = true;
         req.user = user;
+        next();
       } else {
         req.authenticated = false;
+        req.user = null;
+        next(); 
       }
-
-      // Call the next entry in the middleware chain
-      next();
     });
+
   }
 };
 

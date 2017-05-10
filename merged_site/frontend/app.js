@@ -51,16 +51,27 @@ factory('UserService', function() {
 factory('AuthService', function(UserService, $resource) {
 
   var Token = $resource('/api/token');
+  var User = $resource('/api/user');
 
   return {
-    login: function(username, password) {
-      Token.save({ username: username, password: password }, function(res) {
+    login: function(email, password) {
+      Token.save({ email: email, password: password }, function(res) {
         //Check if failed login
         UserService.login(res.token, res.user);
       });
     },
     logout: function() {
       UserService.logout(); 
+    },
+    signup: function(_f, _l, _e, _p) {
+      User.save({
+        firstname: _f,
+        lastname: _l,
+        password: _p,
+        email: _e 
+      }, function(res) {
+        UserService.login(res.token, res);
+      });
     }
   }
 }).
@@ -92,7 +103,12 @@ controller('AppCtrl', ['$scope', 'AuthService', 'UserService', function($scope, 
   });
 
   $scope.signup = function() {
-    console.log("Signup not yet implemented");
+    AuthService.signup(
+      $scope.signup_firstname,
+      $scope.signup_lastname,
+      $scope.signup_email,
+      $scope.signup_password
+    );
   };
 
   $scope.login = function() {

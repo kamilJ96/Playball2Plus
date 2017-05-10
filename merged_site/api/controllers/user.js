@@ -1,9 +1,9 @@
 'use strict;'
-
+var randomstring = require("randomstring");
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
-module.exports = {}
+module.exports = {};
 
 module.exports.Update = function(req, res) {
 
@@ -27,34 +27,59 @@ module.exports.Update = function(req, res) {
       res.status(404).json({'err': 'Not found'});
     }
   });
-}
+};
 
 module.exports.Get = function(req, res) {
 
-  var uid = req.params.id;
+  if(req.user) {
+    res.send(req.user);
+  } else {
+    res.status(400).json({'err': 'Invalid request'});
+  }
 
-  User.findById(uid, function(err, user) {
-    if(!err) {
-      res.send(user);
-    } else {
-      res.status(404).json({'err': 'Not found'});
-    }
-  });
-}
+};
 
 module.exports.Create = function(req, res) {
   console.log(req.body);
   var user = new User({
-    "username": req.body.username,
+    "firstname": req.body.firstname,
+    "lastname": req.body.lastname,
     "password": req.body.password,
     "email": req.body.email
   });
 
+  user.token = randomstring.generate(64);
+  console.log(user);
+
   user.save(function(err,newUser){
     if(!err){
-      res.send({'success': 'true'});
+      res.send(newUser);
     }else{
       res.status(400).json({'err': 'Invalid request'});
     }
   });
-}
+};
+
+module.exports.ReqToken = function(req, res) {
+
+  if(!req.body.email || !req.body.password) {
+    res.status(400).json({'err': 'Invalid request'});
+    return;
+  }
+
+  User.findOne({
+    email: req.body.email,
+    password: req.body.password,
+  }, function(err, user) {
+    if(!user) {
+      res.status(403).json({'err': 'Incorrect details'});
+    } else if(!err){
+      var token = randomstring.generate(64);
+      user.token = token;
+      user.save();
+      res.send({token: token, user: user});
+    }else{
+      res.status(400).json({'err': 'Invalid request'});
+    }
+  });
+};

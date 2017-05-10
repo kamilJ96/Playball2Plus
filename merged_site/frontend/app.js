@@ -70,7 +70,13 @@ factory('AuthService', function(UserService, $resource) {
         password: _p,
         email: _e 
       }, function(res) {
-        UserService.login(res.token, res);
+
+        if(res.err) {
+          alert("Error: " + res.err);
+        } else {
+          $('#signup-modal').modal('close');
+          UserService.login(res.token, res);
+        }
       });
     }
   }

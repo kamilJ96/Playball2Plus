@@ -17,6 +17,7 @@ var userSchema = mongoose.Schema(
     },
     'token': String,
     'email': {
+      index: {unique: true, dropDups: true},
       type: String,
       required: true
     }

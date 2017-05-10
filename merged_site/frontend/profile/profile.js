@@ -9,8 +9,6 @@ angular.module('myApp.profile', ['ngRoute'])
   });
 }])
 
-.controller('ProfileCtrl', ['$scope', 'User', function($scope, User) {
-  User.query({ id: 1}, function(data) {
-    $scope.user = data;
-  });
+.controller('ProfileCtrl', ['$scope', 'UserService', function($scope, UserService) {
+  $scope.user = UserService.currentUser();
 }]);

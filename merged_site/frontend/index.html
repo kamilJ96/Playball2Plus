@@ -18,24 +18,77 @@
   <link rel="stylesheet" href="app.css">
 </head>
 <body>
-  <div ng-controller="AppCtrl" class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper container">
-        <a href="#!" class="brand-logo"><img height="50px;" src="images/logo.png" alt="Logo"></img> PlayBall2+</a>
-        <a href="#!" data-activates="mobile-menu" class="button-collapse" id="mobile-menu-button"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="#!/search"><i class="material-icons">search</i></a></li>
-          <li><a href="#!/calendar"><i class="material-icons">perm_contact_calendar</i></a></li>
-          <li><a href="#!/profile"><i class="material-icons">perm_identity</i></a></li>
-        </ul>
-        <span ng-hide="user == null" class="right hide-on-med-and-down">Welcome back, {{user.firstName}}!</span>
-        <ul class="side-nav" id="mobile-menu">
-          <li><a href="#!/search">Search</a></li>
-          <li><a href="#!/calendar">Calendar</a></li>
-          <li><a href="#!/profile">Profile</a></li>
-        </ul>
+  <div ng-controller="AppCtrl">
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper container">
+          <a href="#!" class="brand-logo"><img height="50px;" src="images/logo.png" alt="Logo"></img> PlayBall2+</a>
+          <a href="#!" data-activates="mobile-menu" class="button-collapse" id="mobile-menu-button"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><button ng-hide="isLoggedIn" data-target="signup-modal" class="btn">Sign Up!</button></li>
+            <li><button ng-hide="isLoggedIn" data-target="signin-modal" class="btn">Log in</button></li>
+            <li><button ng-hide="!isLoggedIn" ng-click="logout()" class="btn">Logout</button></li>
+            <li><a href="#!/search"><i class="material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="Search">search</i></a></li>
+            <li><a href="#!/calendar"><i class="material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="Calendar">perm_contact_calendar</i></a></li>
+            <li><a href="#!/profile"><i class="material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="Profile">perm_identity</i></a></li>
+          </ul>
+          <span ng-hide="user == null" class="right hide-on-med-and-down">Welcome back, {{user.firstName}}!</span>
+          <ul class="side-nav" id="mobile-menu">
+            <li><a href="#!/search">Search</a></li>
+            <li><a href="#!/calendar">Calendar</a></li>
+            <li><a href="#!/profile">Profile</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div id="signin-modal" class="modal">
+      <div class="modal-content">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="login_email" ng-model="login_email" type="email" class="validate">
+              <label for="login_email" data-error="wrong" data-success="right">Email</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="login_password" ng-model="login_password" type="password" class="validate">
+              <label for="login_password">Password</label>
+            </div>
+          </div>
+          <div class="row">
+            <input class="modal-action modal-close waves-effect waves-light btn right" id="submit" type="submit" ng-click="login()" value="Join Now">
+          </div>
+        </form>
       </div>
-    </nav>
+    </div>
+    <div id="signup-modal" class="modal">
+      <div class="modal-content">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="first_name" ng-model="firstName" type="text" class="validate">
+              <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="last_name" ng-model="lastName" type="text" class="validate">
+              <label for="last_name">Last Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="email" ng-model="email" type="email" class="validate">
+              <label for="email" data-error="wrong" data-success="right">Email</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="password" ng-model="password" type="password" class="validate">
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <div class="row">
+            <input class="waves-effect waves-light btn right" id="submit" type="submit" ng-click="signup()" value="Join Now">
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
   <div class="container">
     <!--[if lt IE 7]>
@@ -44,10 +97,7 @@
     <div ng-view></div>
   </div>
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
-  
+
   <script src="libs/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
   <script src="libs/jquery/dist/jquery.min.js"></script>
   <script src="libs/angular/angular.min.js"></script>

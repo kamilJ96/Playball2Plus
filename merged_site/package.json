@@ -16,6 +16,7 @@
     "bower": "^1.7.7",
     "express": "^4.15.2",
     "express-authentication": "^0.3.2",
+    "express-validator": "^3.2.0",
     "mongoose": "^4.9.4"
   }
 }

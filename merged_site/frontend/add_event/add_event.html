@@ -1,44 +1,40 @@
+<span ng-click="back()">&lt; Back</span>
 <div class="row">
-	<h1>Add an event!</h1>
+  <h1>Add an event!</h1>
 </div>
-<form action="" method="post">
-<div class="row">
-	<div class="input-field col s3">
-		<input id="name" type="text">
-		<label for="name">Event Name</label>
-	</div>
-	<div class="input-field col s3">
-		<select>
-			<option value="" disable selected>Choose a sport</option>
-			<option value="soccer">Soccer</option>
-			<option value="rugby">Rugby</option>
-			<option value="tennis">Tennis</option>
-			<option value="lol">farah is best tutor</option>
-		</select>
-		<label>Sport</label>
-	</div>
-	<div class="col s3">
-		<label>Number of Participants</label>
-		<form action="#">
-			<p class="range-field">
-			<input type="range" id="numParticipants" min="2" max="20" />
-			</p>
-		</form>
-	</div>
-	<div class="input-field col s3">
-		<input id="desc" type="text"></input>
-		<label for="desc">Enter a short description</label>
-	</div>
-</div>
-<div class="row">
-	<div class="input-field col s6">
-		<textarea id="address" class="materialize-textarea"></textarea>
-		<label for="address">Enter the Address</label>
-	</div>
-	<div class="col s3">
-		<label>Pick a Date</label>
-		<input id="date" type="date" class="datepicker">
-	</div>
-</div>
-<a class="waves-effect waves-light btn-large" href="#!/calander">Submit Event</a>
+<form action="">
+  <div class="row">
+    <div class="input-field col s3">
+      <label for="name">Event Name</label>
+      <input id="name" ng-model="name" type="text">
+    </div>
+    <div class="input-field col s3">
+      <select ng-model="sport">
+      <option value="" disable selected>Choose a sport</option>
+      <option value="soccer">Soccer</option>
+      <option value="rugby">Rugby</option>
+      <option value="tennis">Tennis</option>
+      </select>
+    </div>
+    <div class="input-field col s3">
+      <label>Number of Participants</label>
+      <p class="range-field">
+        <input type="range" ng-model="participants" id="numParticipants" min="2" max="20" />
+      </p>
+    </div>
+    <div class="input-field col s3">
+      <label for="desc">Enter a short description</label>
+      <input id="desc" ng-model="description" type="text"></input>
+    </div>
+    <div class="input-field col s6">
+      <label for="address">Enter the Address</label>
+      <textarea id="address" ng-model="address" class="materialize-textarea"></textarea>
+    </div>
+    </div>
+    <div class="input-field col s3">
+      <label>Pick a Date</label>
+      <input id="date" ng-model="date" type="text" class="datepicker">
+    </div>
+  </div>
+  <input ng-click="create()" type="submit" class="waves-effect waves-light btn-large" value="Create"/>
 </form>

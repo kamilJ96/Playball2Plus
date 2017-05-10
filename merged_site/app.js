@@ -3,6 +3,7 @@
  */
 // Set up express
 var express = require('express');
+var expressValidator = require('express-validator');
 var app = express();
 
 // Database setup
@@ -12,6 +13,7 @@ require('./api/models/db.js');
 var bodyParser = require('body-parser');
 var auth = require('./api/controllers/auth.js');
 app.use(bodyParser.json());
+app.use(expressValidator());
 app.use(auth.authenticator);
 
 // Routes setup

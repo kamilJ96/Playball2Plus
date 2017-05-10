@@ -1,0 +1,13 @@
+'use strict';
+
+describe('myApp.view1 module', function() {
+	beforeEach(module('myAPp.view1'));
+
+	describe('view1 controller', function(){
+		it('shoud ....', inject(function($controller) {
+			var view1Ctrl = $controller('View1Ctrl');
+			expect(view1Ctrl).toBeDefined();
+		}));
+
+	});
+});

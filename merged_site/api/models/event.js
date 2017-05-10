@@ -38,4 +38,6 @@ var eventSchema = mongoose.Schema({
   }
 );
 
+eventSchema.index({ name: 'text', description: 'text' });
+
 mongoose.model('Event', eventSchema);

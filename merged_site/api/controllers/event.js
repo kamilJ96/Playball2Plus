@@ -38,14 +38,20 @@ var findAllEvents = function(req,res){
 var queryEvent = function(req, res) {
   var query = req.params.query;
 
-  Event.find(function(err,events){
+  Event.find(
+    { $text : { $search : query } },
+    { score : { $meta: "textScore" } }
+  )
+  .sort({ score : { $meta : 'textScore' } })
+  .exec(function(err, events) {
     if(!err){
+      console.log(events);
       res.send(events);
     }else{
       res.sendStatus(404);
     }
   });
-}
+};
 
 var findOneEvent = function(req,res){
   var cafeInx = req.params.id;

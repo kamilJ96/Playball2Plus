@@ -5,7 +5,7 @@ var router = express.Router();
 
 var auth = require('../controllers/auth.js');
 var user = require('../controllers/user.js');
-var events = require('../controllers/controller.js');
+var events = require('../controllers/event.js');
 
 //CRU for user
 router.post('/user', user.Create);

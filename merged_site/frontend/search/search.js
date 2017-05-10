@@ -10,12 +10,26 @@ angular.module('myApp.search', ['ngRoute'])
 }])
 
 .controller('SearchCtrl', ['$scope', '$resource', function($scope, $resource) {
-  var Events = $resource('/api/events/search/:query');
+  var Search = $resource('/api/events/search/:query');
+  var All = $resource('/api/events');
+
+  All.query(function(events) {
+    $scope.results = events;
+    setTimeout(function() {Materialize.showStaggeredList('#search-results');}, 10);
+  });
 
   $scope.$watch("query",function(value,old){
     if(value && (!old || !old.startsWith(value))){
       
-      Events.query({query: value}, function(events) {
+      Search.query({query: value}, function(events) {
+        $scope.results = events;
+        setTimeout(function() {Materialize.showStaggeredList('#search-results');}, 10);
+      });
+    }
+
+    if(value == "") {
+
+      All.query(function(events) {
         $scope.results = events;
         setTimeout(function() {Materialize.showStaggeredList('#search-results');}, 10);
       });

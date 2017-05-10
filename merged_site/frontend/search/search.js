@@ -10,8 +10,8 @@ angular.module('myApp.search', ['ngRoute'])
 }])
 
 .controller('SearchCtrl', ['$scope', '$resource', function($scope, $resource) {
-  var Search = $resource('/api/events/search/:query');
-  var All = $resource('/api/events');
+  var Search = $resource('/api/event/search/:query');
+  var All = $resource('/api/event');
 
   All.query(function(events) {
     $scope.results = events;

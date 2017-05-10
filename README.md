@@ -18,8 +18,8 @@ To get you started you can simply clone the repository and install the dependenc
 ```
 npm -v
 bower -v
-git clone https://github.com/teast/INFO30005-S1-2017/
-cd INFO30005-S1-2017/angularapp/
+git clone https://github.com/teaso/INFO30005-S1-2017/
+cd INFO30005-S1-2017/merged_site/
 npm install
 ```
 

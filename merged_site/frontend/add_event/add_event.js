@@ -11,7 +11,7 @@ angular.module('myApp.add_event', ['ngRoute'])
 
 .controller('AddEventCtrl', ['$scope', '$resource', function($scope, $resource) {
 
-  var Event = $resource('/api/events/:id');
+  var Event = $resource('/api/event/:id');
 
   $(document).ready(function() {
     $('select').material_select();

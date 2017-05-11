@@ -21,22 +21,24 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
 factory('UserService', function() {
 
   var token = localStorage.getItem('userToken');
-  var currentUser = null;
+
+  var currentUser;
 
   return {
     login: function(_token, user) { 
-      console.log(_token, user);
       localStorage.setItem('userToken', _token); 
+      localStorage.setItem('user', user); 
       token = _token; 
       currentUser = user;
     },
     logout: function() { 
       localStorage.removeItem('userToken'); 
+      localStorage.removeItem('user'); 
       token = null; 
       currentUser = null; 
     },
     isLoggedIn: function() { 
-      return token != null; 
+      return token != null && currentUser != null; 
     },
     currentUser: function() { 
       return currentUser; 
@@ -54,11 +56,29 @@ factory('AuthService', function(UserService, $resource) {
   var User = $resource('/api/user');
 
   return {
+    loginIfToken: function() {
+      if(UserService.getToken()) {
+        User.get(function(res) {
+          UserService.login(UserService.getToken(), res);
+        },
+        function(err) {
+          console.log(err);
+        });
+      }
+    },
     login: function(email, password) {
-      Token.save({ email: email, password: password }, function(res) {
-        //Check if failed login
-        UserService.login(res.token, res.user);
-      });
+      Token.save({ email: email, password: password }, 
+        function(res) {
+
+          UserService.login(res.token, res.user);
+          Materialize.toast('Login successful!', 4000)
+          $('#login-modal').modal('close');
+
+        },
+        function(err) {
+          Materialize.toast('Error: ' + err.data.err, 4000)
+        }
+      );
     },
     logout: function() {
       UserService.logout(); 
@@ -69,14 +89,20 @@ factory('AuthService', function(UserService, $resource) {
         lastname: _l,
         password: _p,
         email: _e 
-      }, function(res) {
+      }, 
+      function(res) {
 
         if(res.err) {
-          alert("Error: " + res.err);
+          Materialize.toast('Error: ' + res.err, 4000)
         } else {
-          $('#signup-modal').modal('close');
           UserService.login(res.token, res);
+          Materialize.toast('Signup successful!', 4000)
+          $('#signup-modal').modal('close');
         }
+
+      },
+      function(err) {
+        console.log(err);
       });
     }
   }
@@ -124,6 +150,8 @@ controller('AppCtrl', ['$scope', 'AuthService', 'UserService', function($scope, 
   $scope.logout = function() {
     AuthService.logout();
   };
+
+  AuthService.loginIfToken();
 
   /* Set preferences for sidebar */
   $(document).ready(function(){

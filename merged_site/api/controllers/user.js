@@ -55,7 +55,7 @@ module.exports.Create = function(req, res) {
     if(!err){
       res.send(newUser);
     }else{
-      res.status(400).json({'err': 'Invalid request'});
+      res.status(409).json({'err': 'Invalid request'});
     }
   });
 };

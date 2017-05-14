@@ -4,6 +4,7 @@
 angular.module('myApp', [
   'ngRoute',
   'ngResource',
+  'myApp.about',
   'myApp.search',
   //'myApp.calendar',
   'myApp.profile',
@@ -25,26 +26,26 @@ factory('UserService', function() {
   var currentUser;
 
   return {
-    login: function(_token, user) { 
-      localStorage.setItem('userToken', _token); 
-      localStorage.setItem('user', user); 
-      token = _token; 
+    login: function(_token, user) {
+      localStorage.setItem('userToken', _token);
+      localStorage.setItem('user', user);
+      token = _token;
       currentUser = user;
     },
-    logout: function() { 
-      localStorage.removeItem('userToken'); 
-      localStorage.removeItem('user'); 
-      token = null; 
-      currentUser = null; 
+    logout: function() {
+      localStorage.removeItem('userToken');
+      localStorage.removeItem('user');
+      token = null;
+      currentUser = null;
     },
-    isLoggedIn: function() { 
-      return token != null && currentUser != null; 
+    isLoggedIn: function() {
+      return token != null && currentUser != null;
     },
-    currentUser: function() { 
-      return currentUser; 
+    currentUser: function() {
+      return currentUser;
     },
-    getToken: function() { 
-      return token; 
+    getToken: function() {
+      return token;
     }
   };
 
@@ -67,7 +68,7 @@ factory('AuthService', function(UserService, $resource) {
       }
     },
     login: function(email, password) {
-      Token.save({ email: email, password: password }, 
+      Token.save({ email: email, password: password },
         function(res) {
 
           UserService.login(res.token, res.user);
@@ -81,15 +82,15 @@ factory('AuthService', function(UserService, $resource) {
       );
     },
     logout: function() {
-      UserService.logout(); 
+      UserService.logout();
     },
     signup: function(_f, _l, _e, _p) {
       User.save({
         firstname: _f,
         lastname: _l,
         password: _p,
-        email: _e 
-      }, 
+        email: _e
+      },
       function(res) {
 
         if(res.err) {

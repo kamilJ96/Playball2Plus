@@ -23,10 +23,10 @@
           <label for="search">Search</label>
         </div>
       </div>
-      
+
       <ul id="search-results">
         <li style="opacity: 0;" ng-repeat="event in results">
-          <div class="card">
+          <div class="card hoverable">
             <div class="card-image waves-effect waves-block waves-light">
               <img class="activator" ng-src="{{event.img}}">
             </div>
@@ -43,7 +43,7 @@
           </div>
         </li>
       </ul>
-      
+
       <div class="row">
         <ul class="center-align pagination">
           <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>

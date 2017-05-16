@@ -25,10 +25,10 @@
           <a href="#!" class="brand-logo"><img height="50px;" src="images/logo.png" alt="Logo"></img> PlayBall2+</a>
           <a href="#!" data-activates="mobile-menu" class="button-collapse" id="mobile-menu-button"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="#!/about"><i class="material-icons left">info_outline</i> About Us</a></li>
             <li><button ng-hide="isLoggedIn" data-target="signup-modal" class="btn">Sign Up</button></li>
             <li><button ng-hide="isLoggedIn" data-target="login-modal" class="btn">Log in</button></li>
             <li><button ng-hide="!isLoggedIn" ng-click="logout()" class="btn">Logout</button></li>
+            <li><a href="#!/about"><i class="material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="About Us">info_outline</i></a></li>
             <li><a href="#!/search"><i class="material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="Search">search</i></a></li>
             <li><a href="#!/calendar"><i class="material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="Calendar">dashboard</i></a></li>
             <li><a href="#!/profile" ng-hide="!isLoggedIn" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Profile">{{ currentUser.firstname }}</a></li>

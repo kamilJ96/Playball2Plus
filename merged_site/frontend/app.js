@@ -6,7 +6,7 @@ angular.module('myApp', [
   'ngResource',
   'myApp.about',
   'myApp.search',
-  //'myApp.calendar',
+  'myApp.calendar',
   'myApp.profile',
   'myApp.add_event',
   'myApp.home'

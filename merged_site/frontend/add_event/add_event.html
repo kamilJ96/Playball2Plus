@@ -1,51 +1,67 @@
-<span ng-click="back()">&lt; Back</span>
+
+
 <div class="row">
-  <h1>Add an event!</h1>
+    <h1 class="center-align">Add an event!</h1>
 </div>
-<form action="">
-  <div class="row">
-    <div class="input-field col s12">
-      <i class ="material-icons prefix">event</i>
-      <label for="name">Event Name</label>
-      <input id="name" ng-model="name" type="text">
+
+<div class="row">
+    <div class="col s12 ">
+        <div class="card large z-depth-5 light-green lighten-5 event-card">
+            <form action="">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">event</i>
+                        <label for="name">Event Name</label>
+                        <input id="name" ng-model="name" type="text">
+                    </div>
+                    <div class="input-field col s6 push-s6">
+                        <i class="material-icons prefix">directions_run</i>
+                        <select ng-model="sport">
+                            <option value="" disable selected>Choose a sport</option>
+                            <option value="soccer">Soccer</option>
+                            <option value="rugby">Rugby</option>
+                            <option value="tennis">Tennis</option>
+                            <option value="basketball">Basketball</option>
+                            <option value="walking">Walking</option>
+                            <option value="jogging">Jogging</option>
+                            <option value="netball">Netball</option>
+
+                        </select>
+                    </div>
+                    <div class="input-field col s6 pull-s6">
+                        <i class="material-icons prefix">person</i>
+                        <label>Number of Participants</label>
+                        <p class="range-field">
+                            <input type="range" ng-model="participants" id="numParticipants" min="2" max="20" />
+                        </p>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">event_note</i>
+                        <label for="desc">Enter a short description</label>
+                        <input id="desc" ng-model="description" type="text"> </input>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">location_city</i>
+                        <label for="address">Enter the Address</label>
+                        <textarea id="address" ng-model="address" class="materialize-textarea"></textarea>
+                    </div>
+                </div>
+                <div class="input-field col s3">
+                    <i class="material-icons prefix">date_range</i>
+                    <label>Pick a Date</label>
+                    <input id="date" ng-model="date" type="text" class="datepicker">
+                </div>
+        </div>
+        <div class="row">
+           <div class="col left">
+             <button ng-click="back()" class="waves-effect waves-light btn-large">Back</button>
+           </div>
+           <div class="col right">
+             <button ng-click="create()" class="waves-effect waves-light btn-large">Create </button>
+           </div>
+
+        </div>
+
+        </form>
     </div>
-    <div class="input-field col s6 push-s6">
-      <i class ="material-icons prefix">directions_run</i>
-      <select ng-model="sport">
-      <option value="" disable selected>Choose a sport</option>
-      <option value="soccer">Soccer</option>
-      <option value="rugby">Rugby</option>
-      <option value="tennis">Tennis</option>
-      <option value="basketball">Basketball</option>
-      <option value="walking">Walking</option>
-      <option value="jogging">Jogging</option>
-      <option value="netball">Netball</option>
-        
-      </select>
-    </div>
-    <div class="input-field col s6 pull-s6">
-      <i class ="material-icons prefix">person</i>
-      <label>Number of Participants</label>
-      <p class="range-field">
-        <input type="range" ng-model="participants" id="numParticipants" min="2" max="20" />
-      </p>
-    </div>
-    <div class="input-field col s12">
-      <i class ="material-icons prefix">event_note</i>
-      <label for="desc">Enter a short description</label>
-      <input id="desc" ng-model="description" type="text"> </input>
-    </div>
-    <div class="input-field col s12">
-      <i class ="material-icons prefix">location_city</i>
-      <label for="address">Enter the Address</label>
-      <textarea id="address" ng-model="address" class="materialize-textarea"></textarea>
-    </div>
-    </div>
-    <div class="input-field col s3">
-      <i class ="material-icons prefix">date_range</i>
-      <label>Pick a Date</label>
-      <input id="date" ng-model="date" type="text" class="datepicker">
-    </div>
-  </div>
-  <input ng-click="create()" type="submit" class="waves-effect waves-light btn-large" value="Create"/>
-</form>
+</div>

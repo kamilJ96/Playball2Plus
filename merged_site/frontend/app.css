@@ -47,7 +47,7 @@ nav {
 }
 
 .caption {
-  background: rgba(0, 0, 0, 0);
+  background: rgba(0, 0, 0, 0.5);
   width: auto !important;
   padding: 1em;
 }

@@ -5,12 +5,9 @@
                 <span>
         <ul class="section table-of-contents">
           <li ng-show="isLoggedIn"><a href="#!/add_event">Create game</a></li>
-          <li><a href="#!">My Games</a></li>
-          <li><a href="#!">Friends Games</a></li>
-          <li><a href="#!">Future Games</a></li>
-          <li class="divider"></li>
-          <li><a href="#!">Create team</a></li>
-          <li><a href="#!">Settings</a></li>
+          <li><a ng-click="loadAll()">All Games</a></li>
+          <li><a ng-click="filter('my')">My Games</a></li>
+
         </ul>
       </span>
     </div>
@@ -25,7 +22,7 @@
       </div>
 
       <ul id="search-results">
-          <li style="opacity: 0;" ng-repeat="event in results">
+          <li ng-repeat="event in results">
               <div class="card hoverable">
                   <div class="card-image waves-effect waves-block waves-light">
                       <img class="activator" ng-src="{{event.img_url}}">
@@ -37,7 +34,7 @@
                       <div class="card-title grey-text text-darken-4">
                          <i class="material-icons right">close</i>
                          <h4>{{event.title}} - {{event.start | date : "medium"}}</h4>
-                         <button ng-click="signupEvent(event._id)" class="waves-effect waves-green btn-flat">Participate!</button>
+                         <button ng-click="signupEvent(event)" class="waves-effect waves-green btn-flat">Participate!</button>
                       </div>
                       <div class="section">
                          <ul class="collapsible" data-collapsible="accordion">
@@ -54,6 +51,7 @@
                         <div class="chip" ng-repeat="p in event.participants">
                           <img ng-src="{{p.img_url}}" alt="Contact Person">
                           {{p.firstname}}
+                          <i class="material-icons" ng-show="p._id == currentUser._id" ng-click="cancelSignup(event)">close</i>
                         </div>
                       </div>
                   </div>

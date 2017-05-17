@@ -12,7 +12,8 @@ angular.module('myApp.calendar', ['ngRoute', 'ui.calendar'])
 .controller('CalendarCtrl', ['$scope', '$resource', '$http', 'UserService', function($scope, $resource, $http, UserService) {
 
   $scope.$watch(UserService.isLoggedIn, function(isLoggedIn) {
-    $scope.isLoggedIn = isLoggedIn; 
+    $scope.isLoggedIn = isLoggedIn;
+    $scope.currentUser = UserService.currentUser();
   });
 
   var Events = $resource("/api/event");
@@ -21,13 +22,28 @@ angular.module('myApp.calendar', ['ngRoute', 'ui.calendar'])
   });
 
   $scope.signupEvent = function() {
-    console.log($scope.selectedEvent);
-    var Signup = $resource();
+
     $http({
       url: '/api/event/' + $scope.selectedEvent._id + '/signup',
       method: 'POST'
     }).then(function successCallback(response) {
+      $scope.selectedEvent.participants.push($scope.currentUser);
       Materialize.toast("Successfully signed up!", 4000);
+    }, function errorCallback(err) {
+      Materialize.toast("Error: " + err.data.err, 4000);
+    });
+  }
+
+  $scope.cancelSignup = function() {
+
+    $http({
+      url: '/api/event/' + $scope.selectedEvent._id + '/cancelsignup',
+      method: 'POST'
+    }).then(function successCallback(response) {
+      $scope.selectedEvent.participants = $scope.selectedEvent.participants.filter(function(a, b) {
+        return a._id != $scope.currentUser._id;
+      });
+      Materialize.toast("Successfully canceled!", 4000);
     }, function errorCallback(err) {
       Materialize.toast("Error: " + err.data.err, 4000);
     });

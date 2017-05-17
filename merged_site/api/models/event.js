@@ -31,9 +31,14 @@ var eventSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  'creator': {
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'User'
+  },
   'participants':
     [{
-      type: mongoose.Schema.Types.ObjectId, ref: 'User'
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: 'User'
     }]
   }
 );

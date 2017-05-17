@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.add_event', ['ngRoute'])
+angular.module('myApp.add_event', ['ngRoute', 'google.places'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/add_event', {

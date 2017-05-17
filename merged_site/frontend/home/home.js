@@ -9,8 +9,12 @@ angular.module('myApp.home', ['ngRoute'])
   });
 }])
 
-.controller('HomeCtrl', ['$scope', function($scope) {
+.controller('HomeCtrl', ['$scope','UserService', function($scope,UserService) {
   $(document).ready(function(){
     $('.slider').slider();
+  });
+  $scope.$watch(UserService.isLoggedIn, function(isLoggedIn) {
+    $scope.isLoggedIn = isLoggedIn;
+    $scope.currentUser = UserService.currentUser();
   });
 }]);

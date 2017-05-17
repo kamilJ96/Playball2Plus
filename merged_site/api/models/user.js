@@ -21,7 +21,7 @@ var userSchema = mongoose.Schema(
       type: String,
       required: true
    },
-   'img_url':    {
+   'img_url': {
       type: String,
       required: true
    }

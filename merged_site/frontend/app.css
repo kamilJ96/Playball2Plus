@@ -7,6 +7,15 @@
 
 body {
   background-color: #e1f0d5;
+
+}
+
+h1 {
+     font-family: 'Archivo Black', sans-serif;
+}
+
+h3,h5 {
+   font-family: 'Archivo Narrow', sans-serif;
 }
 
 nav {
@@ -34,7 +43,13 @@ nav {
 }
 
 .caption {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0);
   width: auto !important;
   padding: 1em;
+}
+
+.center-image{
+   margin-left: auto;
+   margin-right: auto;
+   display: block;
 }

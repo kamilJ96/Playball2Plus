@@ -31,10 +31,11 @@ angular.module('myApp.add_event', ['ngRoute'])
       return; 
     }
 
+    $scope.tmp = angular.fromJson($scope.place);
     var e = {
       title: $scope.title,
       description: $scope.description,
-      address: $scope.address,
+      address: $scope.tmp.formatted_address,
       numParticipants: $scope.participants,
       sport: $scope.sport,
       start: moment($scope.start_date + " " + $scope.start_time).format(),
@@ -51,4 +52,9 @@ angular.module('myApp.add_event', ['ngRoute'])
     window.history.back();
   }
 
+    $scope.place = null;
+                   $scope.autocompleteOptions = {
+                       componentRestrictions: { country: 'au' },
+                       types: ['geocode']
+                   }
 }]);

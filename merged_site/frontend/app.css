@@ -4,6 +4,10 @@
     font-family: 'Playball'; /*a name to be used later*/
     src: url('Playball.ttf'); /*URL to font*/
 }
+@font-face {
+   font-family: 'Norwester';
+   src: url('norwester.otf');
+}
 
 body {
   background-color: #e1f0d5;
@@ -11,7 +15,7 @@ body {
 }
 
 h1 {
-     font-family: 'Archivo Black', sans-serif;
+     font-family: 'Norwester', sans-serif;
 }
 
 h3,h5 {
@@ -23,7 +27,7 @@ nav {
 }
 
 .page-footer{
-   background-color: #7bcd8a;
+   background-color: rgba(145, 157, 140, 0.56);
 }
 
 #sidenav-overlay {

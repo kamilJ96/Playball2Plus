@@ -31,11 +31,10 @@ angular.module('myApp.add_event', ['ngRoute', 'google.places'])
       return; 
     }
 
-    $scope.tmp = angular.fromJson($scope.place);
     var e = {
       title: $scope.title,
       description: $scope.description,
-      address: $scope.tmp.formatted_address,
+      address: $scope.place.formatted_address,
       numParticipants: $scope.participants,
       sport: $scope.sport,
       start: moment($scope.start_date + " " + $scope.start_time).format(),

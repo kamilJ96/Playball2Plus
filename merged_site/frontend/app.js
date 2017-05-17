@@ -4,6 +4,7 @@
 angular.module('myApp', [
   'ngRoute',
   'ngResource',
+  'google.places',
   'myApp.about',
   'myApp.search',
   'myApp.calendar',

@@ -28,16 +28,15 @@
           <li style="opacity: 0;" ng-repeat="event in results">
               <div class="card hoverable">
                   <div class="card-image waves-effect waves-block waves-light">
-                      <img class="activator" ng-src="{{event.img}}">
+                      <img class="activator" ng-src="{{event.img_url}}">
                   </div>
                   <div class="card-content">
                       <span class="card-title activator grey-text text-darken-4">{{event.title}}<i class="material-icons right">more_vert</i></span>
-                      <p><a href="#!">Event page</a></p>
                   </div>
                   <div class="card-reveal">
                       <div class="card-title grey-text text-darken-4">
                          <i class="material-icons right">close</i>
-                         <h4>{{event.title}} - {{event.start}}</h4>
+                         <h4>{{event.title}} - {{event.start | date : "medium"}}</h4>
                       </div>
                       <div class="section">
                          <ul class="collapsible" data-collapsible="accordion">

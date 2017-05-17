@@ -6,6 +6,7 @@ var router = express.Router();
 var auth = require('../controllers/auth.js');
 var user = require('../controllers/user.js');
 var event = require('../controllers/event.js');
+var upload = require('../controllers/upload.js');
 
 //CRU for user
 router.post('/user', user.Create);
@@ -13,13 +14,7 @@ router.get('/user', user.Get);
 router.put('/user', user.Update);
 router.post('/token', user.ReqToken);  
 
-router.get('/public', function(req, res) { 
-  res.send("Hello public"); 
-});
-
-router.get('/private', auth.getUser, function(req, res){
-  res.send("Hello " + req.user);
-});
+router.post('/upload', upload.file);
 
 //CR for event
 router.post('/event', event.createEvent);

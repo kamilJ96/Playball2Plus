@@ -5,6 +5,7 @@
 var express = require('express');
 var expressValidator = require('express-validator');
 var app = express();
+const path = require('path');
 
 // Database setup
 require('./api/models/db.js');
@@ -20,7 +21,8 @@ app.use(auth.authenticator);
 var routes = require('./api/routes/routes.js');
 app.use('/api',routes);
 
-app.use(express.static('frontend'));
+app.use(express.static(path.join(__dirname, 'frontend')));
+app.use('/uploads', express.static(path.join(__dirname,'uploads')));
 
 // Start the server
 app.listen(8000,function(req,res){

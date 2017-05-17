@@ -27,8 +27,8 @@ angular.module('myApp.add_event', ['ngRoute'])
     console.log($scope.addevent_form);
     if($scope.addevent_form.$invalid) {
       console.log($scope);
-      Materialize.toast("Event data not valid", 4000);
-      return; 
+      Materialize.toast("Missing event details", 4000);
+      return;
     }
 
     var e = {

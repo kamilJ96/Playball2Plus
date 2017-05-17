@@ -9,7 +9,11 @@ angular.module('myApp.calendar', ['ngRoute', 'ui.calendar'])
   });
 }])
 
-.controller('CalendarCtrl', ['$scope', '$resource', function($scope, $resource) {
+.controller('CalendarCtrl', ['$scope', '$resource', 'UserService', function($scope, $resource, UserService) {
+
+  $scope.$watch(UserService.isLoggedIn, function(isLoggedIn) {
+    $scope.isLoggedIn = isLoggedIn; 
+  });
 
   var Events = $resource("/api/event");
   var _e = Events.query(function() {

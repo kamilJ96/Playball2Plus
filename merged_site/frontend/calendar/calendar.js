@@ -9,7 +9,7 @@ angular.module('myApp.calendar', ['ngRoute', 'ui.calendar'])
   });
 }])
 
-.controller('CalendarCtrl', ['$scope', '$resource', 'UserService', function($scope, $resource, UserService) {
+.controller('CalendarCtrl', ['$scope', '$resource', '$http', 'UserService', function($scope, $resource, $http, UserService) {
 
   $scope.$watch(UserService.isLoggedIn, function(isLoggedIn) {
     $scope.isLoggedIn = isLoggedIn; 
@@ -19,6 +19,20 @@ angular.module('myApp.calendar', ['ngRoute', 'ui.calendar'])
   var _e = Events.query(function() {
     console.log(_e);
   });
+
+  $scope.signupEvent = function() {
+    console.log($scope.selectedEvent);
+    var Signup = $resource();
+    $http({
+      url: '/api/event/' + $scope.selectedEvent._id + '/signup',
+      method: 'POST'
+    }).then(function successCallback(response) {
+      Materialize.toast("Successfully signed up!", 4000);
+    }, function errorCallback(err) {
+      Materialize.toast("Error: " + err.data.err, 4000);
+    });
+
+  }
 
   $scope.eventSources = 
   [{

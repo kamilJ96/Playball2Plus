@@ -64,7 +64,29 @@ var findOneEvent = function(req,res){
   });
 };
 
+var signupEvent = function(req, res) {
+  if(!req.user || !req.user.id) {
+    res.status(400).json({'err': 'Unable to signup if not logged in'});
+  } else {
+
+    var eventIndex = req.params.id;
+    Event.findById(eventIndex, function(err, event) {
+      if(!err){
+        if(event.participants.indexOf(req.user._id) === -1) {
+          event.participants.push(req.user._id); 
+          event.save();
+        } else {
+          res.status(400).json({'err': 'Already signed up!'}); 
+        }
+      }else{
+        res.status(404).json({'err': 'Cannot find event'});
+      }
+    });
+  }
+};
+
 module.exports.createEvent = createEvent;
 module.exports.findAllEvents = findAllEvents;
 module.exports.findOneEvent = findOneEvent;
 module.exports.queryEvent = queryEvent;
+module.exports.signupEvent = signupEvent;

@@ -21,5 +21,6 @@ router.post('/event', event.createEvent);
 router.get('/event', event.findAllEvents);
 router.get('/event/search/:query', event.queryEvent);
 router.get('/event/:id', event.findOneEvent);
+router.post('/event/:id/signup', event.signupEvent);
 
 module.exports = router;

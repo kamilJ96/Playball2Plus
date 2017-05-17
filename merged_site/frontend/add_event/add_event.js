@@ -24,13 +24,12 @@ angular.module('myApp.add_event', ['ngRoute'])
 
   $scope.create = function() {
     var e = {
-      name: $scope.name,
+      title: $scope.title,
       description: $scope.description,
       address: $scope.address,
       numParticipants: $scope.participants,
       sport: $scope.sport,
-      //date: $scope.date,
-      date: "9/11/2001" 
+      start: $scope.start,
     };
     Event.save(e);
     window.history.back();

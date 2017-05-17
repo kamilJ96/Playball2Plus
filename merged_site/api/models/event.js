@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 
 var eventSchema = mongoose.Schema({
-  'name': {
+  'title': {
     type: String,
     required: true
   },
@@ -23,7 +23,7 @@ var eventSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  'date': {
+  'start': {
     type: String,
     required: true
   },

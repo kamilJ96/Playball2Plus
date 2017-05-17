@@ -9,18 +9,23 @@ angular.module('myApp.calendar', ['ngRoute', 'ui.calendar'])
   });
 }])
 
-.controller('CalendarCtrl', ['$scope', function($scope) {
+.controller('CalendarCtrl', ['$scope', '$resource', function($scope, $resource) {
+
+  var Events = $resource("/api/event");
+  var _e = Events.query(function() {
+    console.log(_e);
+  });
+
   $scope.eventSources = 
   [{
-    events: [
-    ],
+    events: _e,
     color: '#0ba568',
     textColor: 'black'
   }];
   
-  $scope.onEventClick = function( date, jsEvent, view){
-    console.log(date, jsEvent, view);
-    Materialize.toast(date.title, 3000, 'rounded')
+  $scope.onEventClick = function(clickedEvent, jsEvent, view){
+    $scope.selectedEvent = clickedEvent;
+    $('#info_modal').modal('open'); 
   };
   
   $scope.uiConfig = {
@@ -35,4 +40,7 @@ angular.module('myApp.calendar', ['ngRoute', 'ui.calendar'])
       }
     };  
 
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
 }]);

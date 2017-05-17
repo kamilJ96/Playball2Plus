@@ -54,7 +54,10 @@ factory('UserService', function() {
 factory('AuthService', function(UserService, $resource) {
 
   var Token = $resource('/api/token');
-  var User = $resource('/api/user');
+  var User = $resource('/api/user', null,
+    {
+      'update': { method: 'PUT' } 
+    });
 
   return {
     loginIfToken: function() {
@@ -84,6 +87,9 @@ factory('AuthService', function(UserService, $resource) {
     logout: function() {
       UserService.logout();
     },
+    update: function(_u) {
+      User.update({ id: _u.id }, _u);
+    },
     signup: function(_f, _l, _e, _p) {
       User.save({
         firstname: _f,
@@ -104,6 +110,7 @@ factory('AuthService', function(UserService, $resource) {
       },
       function(err) {
         console.log(err);
+        Materialize.toast("Error: " + err.data.err, 4000);
       });
     }
   }

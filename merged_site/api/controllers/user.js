@@ -7,26 +7,31 @@ module.exports = {};
 
 module.exports.Update = function(req, res) {
 
-  var uid = req.params.id;
+  if(!req.user && !req.user.id) {
+    res.status(400).json({'err': 'Unauthorised'});
+  } else {
 
-  User.findById(uid, function(err, user) {
-    if(!err && user) {
-      user.email = req.body.email;
-      user.password = req.body.password;
-      user.username = req.body.username;
+    User.findById(req.user.id, function(err, user) {
+      if(!err && user) {
+        user.firstname = req.body.firstname;
+        user.lastname = req.body.lastname;
+        user.password = req.body.password;
 
-      user.save(function(err,newUser){
-        if(!err && newUser){
-          res.send({'success': 'true'});
-        }else{
-          res.status(400).json({'err': 'Invalid request'});
-        }
-      });
+        user.save(function(err,newUser){
+          if(!err && newUser){
+            res.send({'success': 'true'});
+          }else{
+            res.status(400).json({'err': 'Invalid request'});
+          }
+        });
 
-    } else {
-      res.status(404).json({'err': 'Not found'});
-    }
-  });
+      } else {
+        res.status(404).json({'err': 'Not found'});
+      }
+    });
+    
+  }
+
 };
 
 module.exports.Get = function(req, res) {
@@ -55,7 +60,7 @@ module.exports.Create = function(req, res) {
     if(!err){
       res.send(newUser);
     }else{
-      res.status(409).json({'err': 'Invalid request'});
+      res.status(409).json({'err': 'E-Mail already taken'});
     }
   });
 };

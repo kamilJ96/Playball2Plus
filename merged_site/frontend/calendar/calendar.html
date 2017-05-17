@@ -21,6 +21,7 @@
       <div class="chip" ng-repeat="p in selectedEvent.participants">
         <img ng-src="{{p.img_url}}" alt="Contact Person">
         {{p.firstname}}
+        <i class="material-icons" ng-show="p._id == currentUser._id" ng-click="cancelSignup(selectedEvent)">close</i>
       </div>
     </div>
     <div class="modal-footer">

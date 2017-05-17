@@ -20,7 +20,9 @@ router.post('/upload', upload.file);
 router.post('/event', event.createEvent);
 router.get('/event', event.findAllEvents);
 router.get('/event/search/:query', event.queryEvent);
+router.get('/event/filter/:query', event.filterQueryEvent);
 router.get('/event/:id', event.findOneEvent);
 router.post('/event/:id/signup', event.signupEvent);
+router.post('/event/:id/cancelsignup', event.cancelSignupEvent);
 
 module.exports = router;

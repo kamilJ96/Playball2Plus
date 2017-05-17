@@ -20,7 +20,11 @@ var userSchema = mongoose.Schema(
       index: {unique: true, dropDups: true},
       type: String,
       required: true
-    }
+   },
+   'img_url':    {
+      type: String,
+      required: true
+   }
   }
 );
 

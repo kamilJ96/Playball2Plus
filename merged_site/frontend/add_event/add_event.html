@@ -41,9 +41,10 @@
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">location_on</i>
-                        <label for="address">Enter the Address</label>
-                        <textarea id="address" ng-model="address" required="" class="materialize-textarea"></textarea>
-                    </div>
+                       <form class="form">
+                            <input id="address" class="form-control" g-places-autocomplete options="autocompleteOptions" ng-model="place"/>
+                            <label for="address" class="active">Enter Address</label>
+                        </form>
                 </div>
                 <div class="input-field col s3">
                     <i class="material-icons prefix">date_range</i>

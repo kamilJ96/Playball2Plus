@@ -56,7 +56,7 @@ factory('AuthService', function(UserService, $resource) {
   var Token = $resource('/api/token');
   var User = $resource('/api/user', null,
     {
-      'update': { method: 'PUT' } 
+      'update': { method: 'PUT' }
     });
 
   return {
@@ -143,6 +143,11 @@ controller('AppCtrl', ['$scope', 'AuthService', 'UserService', function($scope, 
   });
 
   $scope.signup = function() {
+ if($scope.signup_form.$invalid){
+    console.log($scope);
+    Materialize.toast("Incomplete user data", 4000);
+    return;
+}
     AuthService.signup(
       $scope.signup_firstname,
       $scope.signup_lastname,

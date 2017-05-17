@@ -74,21 +74,21 @@
         <form name="signup_form" class="col s12">
           <div class="row">
             <div class="input-field col s6">
-              <input id="first_name" ng-model="signup_firstname" type="text" class="validate">
+              <input id="first_name" ng-model="signup_firstname" type="text" class="validate" required="">
               <label for="first_name">First Name</label>
             </div>
             <div class="input-field col s6">
-              <input id="last_name" ng-model="signup_lastname" type="text" class="validate">
+              <input id="last_name" ng-model="signup_lastname" type="text" class="validate" required="">
               <label for="last_name">Last Name</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s6">
-              <input id="email" ng-model="signup_email" type="email" class="validate">
+              <input id="email" ng-model="signup_email" type="email" class="validate" required="">
               <label for="email" data-error="wrong" data-success="right">Email</label>
             </div>
             <div class="input-field col s6">
-              <input id="password" ng-model="signup_password" type="password" class="validate">
+              <input id="password" ng-model="signup_password" type="password" class="validate" required="">
               <label for="password">Password</label>
             </div>
           </div>

@@ -53,3 +53,7 @@ nav {
    margin-right: auto;
    display: block;
 }
+
+.event-card{
+   padding: 2em;
+}

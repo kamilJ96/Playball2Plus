@@ -12,7 +12,7 @@ var storage = multer.diskStorage({
   }
 });
 
-var upload = multer({ storage : storage}).single('upload');
+var upload = multer({ storage : storage}).single('file');
 
 module.exports.file = function(req, res) {
   upload(req,res,function(err) {

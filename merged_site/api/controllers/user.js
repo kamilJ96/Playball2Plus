@@ -16,6 +16,7 @@ module.exports.Update = function(req, res) {
         user.firstname = req.body.firstname;
         user.lastname = req.body.lastname;
         user.password = req.body.password;
+        user.img_url = req.body.img_url;
 
         user.save(function(err,newUser){
           if(!err && newUser){

@@ -26,7 +26,9 @@ var createEvent = function(req,res){
 };
 
 var findAllEvents = function(req,res){
-  Event.find(function(err,events){
+  Event.find()
+  .populate('participants', 'firstname img_url')
+  .exec(function(err,events){
     if(!err){
       res.send(events);
     }else{
@@ -43,6 +45,7 @@ var queryEvent = function(req, res) {
     { score : { $meta: "textScore" } }
   )
   .sort({ score : { $meta : 'textScore' } })
+  .populate('participants', 'firstname img_url')
   .exec(function(err, events) {
     if(!err){
       console.log(events);

@@ -9,7 +9,7 @@ angular.module('myApp.search', ['ngRoute'])
   });
 }])
 
-.controller('SearchCtrl', ['$scope', '$resource', 'UserService', function($scope, $resource, UserService) {
+.controller('SearchCtrl', ['$scope', '$http', '$resource', 'UserService', function($scope, $http, $resource, UserService) {
   var Search = $resource('/api/event/search/:query');
   var All = $resource('/api/event');
 
@@ -21,6 +21,19 @@ angular.module('myApp.search', ['ngRoute'])
     $scope.results = events;
     setTimeout(function() {Materialize.showStaggeredList('#search-results');}, 10);
   });
+
+  $scope.signupEvent = function(id) {
+    console.log($scope.selectedEvent);
+    var Signup = $resource();
+    $http({
+      url: '/api/event/' + id + '/signup',
+      method: 'POST'
+    }).then(function successCallback(response) {
+      Materialize.toast("Successfully signed up!", 4000);
+    }, function errorCallback(err) {
+      Materialize.toast("Error: " + err.data.err, 4000);
+    });
+  }
 
   $scope.$watch("query",function(value,old){
     if(value && (!old || !old.startsWith(value))){

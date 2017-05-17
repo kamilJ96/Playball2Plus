@@ -18,6 +18,10 @@
             </li>
          </ul>
       </div>
+      <div class="chip" ng-repeat="p in selectedEvent.participants">
+        <img ng-src="{{p.img_url}}" alt="Contact Person">
+        {{p.firstname}}
+      </div>
     </div>
     <div class="modal-footer">
       <button ng-click="signupEvent()" class="waves-effect waves-green btn-flat">Participate!</button>

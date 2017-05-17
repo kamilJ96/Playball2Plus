@@ -51,7 +51,7 @@ module.exports.Create = function(req, res) {
     "lastname": req.body.lastname,
     "password": req.body.password,
     "email": req.body.email,
-    "img_url": "/images/tom.jpg"
+    "img_url": "/images/profile.jpg"
   });
 
   user.token = randomstring.generate(64);

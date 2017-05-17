@@ -31,7 +31,6 @@ angular.module('myApp.calendar', ['ngRoute', 'ui.calendar'])
     }, function errorCallback(err) {
       Materialize.toast("Error: " + err.data.err, 4000);
     });
-
   }
 
   $scope.eventSources = 

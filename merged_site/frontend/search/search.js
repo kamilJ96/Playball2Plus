@@ -9,9 +9,13 @@ angular.module('myApp.search', ['ngRoute'])
   });
 }])
 
-.controller('SearchCtrl', ['$scope', '$resource', function($scope, $resource) {
+.controller('SearchCtrl', ['$scope', '$resource', 'UserService', function($scope, $resource, UserService) {
   var Search = $resource('/api/event/search/:query');
   var All = $resource('/api/event');
+
+  $scope.$watch(UserService.isLoggedIn, function(isLoggedIn) {
+    $scope.isLoggedIn = isLoggedIn;
+  });
 
   All.query(function(events) {
     $scope.results = events;

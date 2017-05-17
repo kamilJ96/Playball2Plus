@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.add_event', ['ngRoute'])
+angular.module('myApp.add_event', ['ngRoute', 'google.places'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/add_event', {
@@ -34,7 +34,7 @@ angular.module('myApp.add_event', ['ngRoute'])
     var e = {
       title: $scope.title,
       description: $scope.description,
-      address: $scope.address,
+      address: $scope.place.formatted_address,
       numParticipants: $scope.participants,
       sport: $scope.sport,
       start: moment($scope.start_date + " " + $scope.start_time).format(),
@@ -51,4 +51,9 @@ angular.module('myApp.add_event', ['ngRoute'])
     window.history.back();
   }
 
+    $scope.place = null;
+                   $scope.autocompleteOptions = {
+                       componentRestrictions: { country: 'au' },
+                       types: ['geocode']
+                   }
 }]);

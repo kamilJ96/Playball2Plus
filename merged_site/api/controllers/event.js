@@ -6,12 +6,12 @@ var Event = mongoose.model('Event');
 var createEvent = function(req,res){
   // Sanitize the textual inputs before processing them
   var event = new Event({
-    "name":req.body.name,
+    "title":req.body.title,
     "description":req.body.description,
     "address":req.body.address,
     "numParticipants":req.body.numParticipants,
     "sport":req.body.sport,
-    "date": req.body.date,
+    "start": req.body.start,
     "img": "images/bball.jpg",
     "participants": []
   });

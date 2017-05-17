@@ -15,24 +15,36 @@ angular.module('myApp.add_event', ['ngRoute'])
 
   $(document).ready(function() {
     $('select').material_select();
+    $('.timepicker').pickatime();
+    $('.datepicker').pickadate({
+      selectMonths: true,
+      selectYears: 2
+    });
   });
 
-  $('.datepicker').pickadate({
-    selectMonths: true,
-    selectYears: 2
-  });
 
   $scope.create = function() {
+    console.log($scope.addevent_form);
+    if($scope.addevent_form.$invalid) {
+      console.log($scope);
+      Materialize.toast("Event data not valid", 4000);
+      return; 
+    }
+
     var e = {
       title: $scope.title,
       description: $scope.description,
       address: $scope.address,
       numParticipants: $scope.participants,
       sport: $scope.sport,
-      start: $scope.start,
+      start: moment($scope.start_date + " " + $scope.start_time).format(),
     };
-    Event.save(e);
-    window.history.back();
+    Event.save(e, function(res) {
+      Materialize.toast("Success!", 4000);
+      window.history.back();
+    }, function(err) {
+      Materialize.toast("Error: " + err.data.err, 4000);
+    });
   }
 
   $scope.back = function() {

@@ -7,16 +7,15 @@
 <div class="row">
     <div class="col s12 ">
         <div class="card large z-depth-5 light-green lighten-5 event-card">
-            <form action="">
+            <form name="addevent_form">
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">event</i>
                         <label for="title">Event Name</label>
-                        <input id="title" ng-model="title" type="text">
+                        <input id="title" validate ng-model="title" required="" type="text">
                     </div>
                     <div class="input-field col s6 push-s6">
-                        <i class="material-icons prefix">directions_run</i>
-                        <select ng-model="sport">
+                        <select id="sport" class="browser-default" ng-model="sport" required="">
                             <option value="" disable selected>Choose a sport</option>
                             <option value="soccer">Soccer</option>
                             <option value="rugby">Rugby</option>
@@ -32,24 +31,29 @@
                         <i class="material-icons prefix">person</i>
                         <label>Number of Participants</label>
                         <p class="range-field">
-                            <input type="range" ng-model="participants" id="numParticipants" min="2" max="20" />
+                            <input type="range" required="" ng-model="participants" id="numParticipants" min="2" max="20" />
                         </p>
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">event_note</i>
                         <label for="desc">Enter a short description</label>
-                        <input id="desc" ng-model="description" type="text"> </input>
+                        <input id="desc" ng-model="description" required="" type="text"> </input>
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">location_city</i>
                         <label for="address">Enter the Address</label>
-                        <textarea id="address" ng-model="address" class="materialize-textarea"></textarea>
+                        <textarea id="address" ng-model="address" required="" class="materialize-textarea"></textarea>
                     </div>
                 </div>
                 <div class="input-field col s3">
                     <i class="material-icons prefix">date_range</i>
-                    <label for="start">Pick a Date</label>
-                    <input id="start" ng-model="start" type="text" class="datepicker">
+                    <label for="start_date">Pick a Date</label>
+                    <input id="start_date" ng-model="start_date" type="text" required="" class="datepicker">
+                </div>
+                <div class="input-field col s3">
+                    <i class="material-icons prefix">time_range</i>
+                    <label for="start_time">Pick a time</label>
+                    <input id="start_time" ng-model="start_time" type="text" required="" class="timepicker">
                 </div>
         </div>
         <div class="row">
@@ -57,7 +61,7 @@
              <button ng-click="back()" class="waves-effect waves-light btn-large">Back</button>
            </div>
            <div class="col right">
-             <button ng-click="create()" class="waves-effect waves-light btn-large">Create </button>
+             <button ng-click="create()" ng-disable="addevent_form.$pristine || addevent_form.$invalid" class="waves-effect waves-light btn-large">Create </button>
            </div>
 
         </div>

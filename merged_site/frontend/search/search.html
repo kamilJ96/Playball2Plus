@@ -19,7 +19,7 @@
     <div class="col s9">
       <div class="row card-panel">
         <div class="input-field">
-          <input id="search" ng-model="query" type="text">
+          <input id="search" ng-model="query" ng-model-options="{ updateOn: 'blur' }" type="text">
           <label for="search">Search</label>
         </div>
       </div>

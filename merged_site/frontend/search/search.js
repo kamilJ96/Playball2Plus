@@ -24,7 +24,7 @@ angular.module('myApp.search', ['ngRoute'])
 
   $scope.$watch("query",function(value,old){
     if(value && (!old || !old.startsWith(value))){
-      
+
       Search.query({query: value}, function(events) {
         $scope.results = events;
         setTimeout(function() {Materialize.showStaggeredList('#search-results');}, 10);

@@ -29,7 +29,7 @@ module.exports.Update = function(req, res) {
         res.status(404).json({'err': 'Not found'});
       }
     });
-    
+
   }
 
 };
@@ -50,13 +50,15 @@ module.exports.Create = function(req, res) {
     "firstname": req.body.firstname,
     "lastname": req.body.lastname,
     "password": req.body.password,
-    "email": req.body.email
+    "email": req.body.email,
+    "img_url": "/images/tom.jpg"
   });
 
   user.token = randomstring.generate(64);
   console.log(user);
 
   user.save(function(err,newUser){
+     console.log(err);
     if(!err){
       res.send(newUser);
     }else{

@@ -12,7 +12,7 @@ var createEvent = function(req,res){
     "numParticipants":req.body.numParticipants,
     "sport":req.body.sport,
     "start": req.body.start,
-    "img": "images/bball.jpg",
+    "img_url": "/images/"+ req.body.sport + ".jpg",
     "participants": []
   });
   event.save(function(err,newEvent){

@@ -9,6 +9,19 @@ angular.module('myApp.profile', ['ngRoute'])
   });
 }])
 
-.controller('ProfileCtrl', ['$scope', 'UserService', function($scope, UserService) {
+.controller('ProfileCtrl', ['$scope', '$location', 'UserService', 'AuthService', function($scope, $location, UserService, AuthService) {
   $scope.user = UserService.currentUser();
+
+  $scope.$watch(UserService.isLoggedIn, function(isLoggedIn) {
+    //$scope.user = currentUser;
+    if(!isLoggedIn) {
+      $location.path("/#!/home");
+    }
+  });
+
+  $scope.save_details = function() {
+    $scope.user_details.$setPristine();
+    AuthService.update($scope.user);
+  }
+  
 }]);

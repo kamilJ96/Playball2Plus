@@ -3,26 +3,29 @@
     <img src="images/profile.jpg" alt="" class="center-align circle responsive-img">
   </div>
   <div class="col s8">
-    <div class="row">
-      <div class="input-field col s6">
-        <input id="first_name" ng-model="user.firstName" type="text" class="validate">
-        <label class="active" for="first_name">First Name</label>
+    <form method="post" name="user_details">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="first_name" ng-required="true" ng-model="user.firstname" type="text" class="validate">
+          <label class="active" for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" ng-required="true" ng-model="user.lastname" type="text" class="validate">
+          <label class="active" for="last_name">Last Name</label>
+        </div>
       </div>
-      <div class="input-field col s6">
-        <input id="last_name" ng-model="user.lastName" type="text" class="validate">
-        <label class="active" for="last_name">Last Name</label>
+      <div class="row">
+        <div class="input-field col s6">
+          <input disabled id="email" ng-required="true" ng-model="user.email" type="email" class="validate">
+          <label class="active" for="email" data-error="Bad email" data-success="Good">Email</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="password" ng-required="true" ng-model="user.password" type="password" class="validate">
+          <label class="active" for="password">Password</label>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s6">
-        <input id="email" ng-model="user.email" type="email" class="validate">
-        <label class="active" for="email" data-error="Bad email" data-success="Good">Email</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="password" ng-model="user.password" type="password" class="validate">
-        <label class="active" for="password">Password</label>
-      </div>
-    </div>
+      <input type="submit" ng-click="save_details()" ng-hide="user_details.$pristine || user_details.$invalid" class="btn" value="Save" />
+    </form>
   </div>
 </div>
 

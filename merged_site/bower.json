@@ -14,7 +14,7 @@
     "materialize": "*",
     "jQuery": "*",
     "angular-ui-calendar": "^1.0.2",
-    "angular-google-places-autocomplete": "^0.2.9",
+    "angular-google-places-autocomplete": "^0.2.7",
     "pickadate": "^3.5.6"
   },
   "resolutions": {
